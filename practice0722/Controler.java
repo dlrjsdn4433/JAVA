@@ -11,14 +11,18 @@ public class Controler {
     }
     public void turnLeft(){
         robot.turnLeft();
-        robot.checkDirection();
     }
     public void turnRight(){
         robot.turnRight();
-        robot.checkDirection();
     }
     public void turnOff() {
         robot.turnoff();
     }
 
+    public void checkPosition(){ robot.checkPosition();}
+
+    public void checkDirection(){robot.checkDirection();}
+    public void reset(){robot.reset();
+    }
 }
+
