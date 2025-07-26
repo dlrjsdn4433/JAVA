@@ -8,17 +8,11 @@ public class Player extends Rule{
     public void who(){
         System.out.print("플레이어는 ");
     }
-    public void whose(){
-        System.out.print("플레이어의 ");
-    }
+
     @Override
     public int RollDice(){
         return (int)(Math.random()*6+1);
 
-    }
-
-    public void hp(int damage){
-        this.hp-=damage;
     }
 
     @Override

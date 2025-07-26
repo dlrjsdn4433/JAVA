@@ -31,9 +31,8 @@ public class Application {
 
         while(true){
             System.out.println();
-            System.out.println(i+"번째 실행");
+            System.out.println(i+"번째 게임");
             System.out.println("1. 시작하기");
-            System.out.println("2. 다시하기");
             System.out.println("9. 포기하고 종료하기");
             System.out.print("숫자를 눌러주세요 : ");
 
@@ -44,7 +43,7 @@ public class Application {
                 case 1:
                     dr.DRule();
                     i++;
-                case 2:
+                    break;
                 case 9:
                     break;
                 default :
@@ -52,8 +51,28 @@ public class Application {
                     break;
             }
 
+
+            // 승패 판정
+            if (dr.getChp()<=0){
+                if(dr.getPhp()<=0){
+                    System.out.println("무승부입니다.");
+                }else{
+                System.out.println("승리!!");
+                }
+                break;
+            } else if(dr.getPhp()<=0){
+                if (dr.getChp()<=0){
+                    System.out.println("무승부입니다.");
+                }else {
+                    System.out.println("패배...");
+                }
+                break;
+            }
+
+
+            // 종료
             if(num==9){
-                System.out.println("게임을 포기하고 종료하셨습니다.");
+                System.out.println("게임을 포기하고 종료하였습니다.");
                 break;
             }
 
