@@ -49,9 +49,24 @@ public class BookDTO {
 
     @Override
     public String toString() {
+        String Scategroy="";
+        switch(category){
+            case 1 :
+                Scategroy="인문";
+                break;
+            case 2 :
+                Scategroy="자연과학";
+                break;
+            case 3 :
+                Scategroy="의료";
+                break;
+            case 4 :
+                Scategroy="기타";
+                break;
+        }
         return "BookDTO{" +
                 "bNO=" + bNO +
-                ", category=" + category +
+                ", category=" + Scategroy +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 '}';

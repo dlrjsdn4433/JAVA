@@ -25,24 +25,46 @@ public class BookMenu {
             int num = sc.nextInt();
 
             switch(num){
-                case 1: bmanager.addBook(bmenu.inputBook());break;
+                case 1: // 해결
+                    bmanager.addBook(bmenu.inputBook());
+                    break;
+                    
                 case 2:
-                case 3:
-                    System.out.println("도서 삭제 : ");
-                    String dbook = sc.nextLine();
-                    bmanager.deleteBook(bmanager.searchBook(dbook));
-                case 4:
+                    sc.nextLine();
+                    System.out.println("1. 오름차순 2.내림차순");
+                    int snum = sc.nextInt();
+                    bmanager.printBookList(bmanager.sortedBookList(snum));
+                    break;
+
+                    
+                case 3: // 해결
+                    sc.nextLine();
+                    System.out.println("삭제할 도서의 제목을 입력해주세요 : ");
+                    String a = sc.nextLine();
+                    bmanager.deleteBook(bmanager.searchBook(a));
+                    break;
+                    
+                case 4: // 해결
+                    System.out.println("조회할 도서의 제목을 입력해주세요 : ");
                     int bnum = bmanager.searchBook(bmenu.inputBookTitle());
                     if(bnum == -1){
-                        System.out.println(bnum);
-                        System.out.println("출력할 도서가 없습니다.");
+                        System.out.println("조회한 도서가 존재하지 않습니다.");
                     } else {
-                        System.out.println(bnum);
                         bmanager.printBook(bnum);
                     }
                     break;
-                case 5: bmanager.displayAll();
-                case 6:
+
+                case 5: // 해결
+                    bmanager.displayAll();
+                    break;
+
+                case 6: // 해결
+                    break;
+            }
+
+            if(num==6){
+                System.out.println("프로그램을 종료합니다.");
+                break;
             }
         }
     }
@@ -56,6 +78,7 @@ public class BookMenu {
         System.out.println("도서 번호 : ");
         int bnum = sc.nextInt();
         bDTO.setbNO(bnum);
+        sc.nextLine();
 
         System.out.println("도서 제목 : ");
         String btitle = sc.nextLine();
@@ -75,7 +98,6 @@ public class BookMenu {
 
     public String inputBookTitle(){
         System.out.println("도서 제목 : ");
-        sc.nextLine();
         String title = sc.nextLine();
         return title;
     }

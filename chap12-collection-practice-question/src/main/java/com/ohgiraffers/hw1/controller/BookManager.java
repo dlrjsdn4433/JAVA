@@ -10,7 +10,7 @@ public class BookManager {
     private ArrayList<BookDTO> bookList;
 
     public BookManager(){
-        this.bookList = new ArrayList<>();
+        bookList = new ArrayList<>();
     }
 
     public void addBook(BookDTO book){
@@ -24,12 +24,13 @@ public class BookManager {
     public int searchBook(String title) {
         int num=0;
         for(int i = 0; i < this.bookList.size();i++){
-            BookDTO o = this.bookList.get(i);
-            if(o.getTitle().equals(title)){
+            if(bookList.get(i).getTitle().equals(title)){
                 return i;
+            }else{
+                num=-1;
             }
         }
-        return -1;
+        return num;
     }
 
     public void printBook(int index) {
@@ -44,14 +45,19 @@ public class BookManager {
     }
 
     public ArrayList<BookDTO> sortedBookList(int select){ //책 제목 기준으로 오름차순 내림차순
+
         Comparator<? extends BookDTO> Comparator;
-        if(select==1){bookList.sort(new Comparator<BookDTO>() {
+        if(select==1){
+            System.out.println("오름차순으로 정렬합니다.");
+            bookList.sort(new Comparator<BookDTO>() {
             @Override
             public int compare(BookDTO o1, BookDTO o2) {
                 return o1.getTitle().compareTo(o2.getTitle());
             }
         });
-        }else{bookList.sort(new Comparator<BookDTO>() {
+        }else{
+            System.out.println("내림차순으로 정렬합니다.");
+            bookList.sort(new Comparator<BookDTO>() {
             @Override
             public int compare(BookDTO o1, BookDTO o2) {
                 return o2.getTitle().compareTo(o1.getTitle());
