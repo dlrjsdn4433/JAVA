@@ -42,6 +42,9 @@ public class BookManager {
         for( int i = 0 ; i < bookList.size(); i ++ ) {
             System.out.println(bookList.get(i));
         }
+        if(bookList.isEmpty()){
+            System.out.println("출력할 도서가 없습니다.");
+        }
     }
 
     public ArrayList<BookDTO> sortedBookList(int select){ //책 제목 기준으로 오름차순 내림차순
@@ -52,7 +55,7 @@ public class BookManager {
             bookList.sort(new Comparator<BookDTO>() {
             @Override
             public int compare(BookDTO o1, BookDTO o2) {
-                return o1.getTitle().compareTo(o2.getTitle());
+                return o1.getCategory()-o2.getCategory();
             }
         });
         }else{
@@ -60,7 +63,7 @@ public class BookManager {
             bookList.sort(new Comparator<BookDTO>() {
             @Override
             public int compare(BookDTO o1, BookDTO o2) {
-                return o2.getTitle().compareTo(o1.getTitle());
+                return o2.getCategory()-o1.getCategory();
             }
         });
 
@@ -76,6 +79,12 @@ public class BookManager {
     public void printBookList(ArrayList<BookDTO> br){
         for(BookDTO b : br){
             System.out.println("b = " + b);
+        }
+    }
+
+    public void noExistBook(String title){
+        for(int i = 0; i<bookList.size();i++){
+
         }
     }
 
